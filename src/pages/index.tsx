@@ -33,7 +33,6 @@ export default function Home({ imoveis }) {
 
       const { lista } = response.data;
      
-
     })
       .catch(error => {
         console.log(error.data);
@@ -104,13 +103,13 @@ export default function Home({ imoveis }) {
 * Indicados para dados dinamicos
 */
 
-export const getServerSideProps: GetServerSideProps = async () => {
+// export const getServerSideProps: GetServerSideProps = async () => {
 
-  const properties = await api.get('Imovel/RetornarImoveisDisponiveis', {
-    params: {
-      parametros: '{"finalidade":1,"numeroPagina":1,"numeroRegistros": 20}'
-    }
-  })
+//   const properties = await api.get('Imovel/RetornarImoveisDisponiveis', {
+//     params: {
+//       parametros: '{"finalidade":1,"numeroPagina":1,"numeroRegistros": 20}'
+//     }
+//   })
 
 
   // .then(response => {
@@ -123,13 +122,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
   //  console.log(error.data);
   //})
 
-  return {
-    props: {
-      imoveis: properties.data.lista
-    },
+//   return {
+//     props: {
+//       imoveis: properties.data.lista
+//     },
 
-  }
-}
+//   }
+// }
 
 
 /*
@@ -139,26 +138,31 @@ export const getServerSideProps: GetServerSideProps = async () => {
 * - Não indicado para paraginas dinamicas
 */
 
-// export const getStaticProps: GetStaticProps = async () =>{
+ export const getStaticProps: GetStaticProps = async () =>{
 
-//   const properties = api.get('/Imovel/RetornarImoveisDisponiveis',{
-//     params: {
-//       "finalidade":"1",
-//       "numeroPagina":"1",
-//       "numeroRegistros":"8"},
-//   }).then(response => {
-//     console.log(response)
-//  })
-//  .catch(error => {
-//       console.log(error)
-//  })
+  const properties = await api.get('Imovel/RetornarImoveisDisponiveis', {
+    params: {
+      parametros: '{"finalidade":1,"numeroPagina":1,"numeroRegistros": 20}'
+    }
+  }).then(response => {
+    const {lista} = response.data;
+
+      return lista;
+  })
+  .catch(error => {
+   console.log(error.data);
+  })
 
 
-//   return{
-//     props:{},
-//     revalidate: 60 * 60 * 24 //24 horas
-//   }
-// }
+ 
+
+  return{
+    props:{
+       imoveis: properties
+    },
+    revalidate: 60 * 60 * 72 //72 horas
+  }
+}
 
 
 
