@@ -1,0 +1,49 @@
+.containerCarrossel{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    h2{
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .containerAreaCarrossel{
+        overflow-x: hidden;
+     
+        .scroll{
+            width: 16200px;
+            transition: all ease 0.5s;
+        }
+    }
+
+    .controls{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .iconCircle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5rem;
+
+        background-color: var(--gray-600);
+        padding: 1rem;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover{
+           background-color: var(--gray-400)
+        }
+
+        &:active{
+            background-color: var(--yellow-500)
+         }
+    }
+    
+}

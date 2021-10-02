@@ -1,0 +1,135 @@
+.container {
+    padding: 1rem;
+}
+
+.banner {
+    height: 100vh;
+    background-image: url("../../public/images/home/banner-home.jpg");
+    background-position: center;
+    background-size: cover;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1{
+       text-align: center;
+    }
+
+    .containerBusca {
+        width: 100%;
+        padding: 1rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        .containerInput {
+            flex: 1;
+            margin-right: 5px;
+            margin-bottom: 10px;
+            min-width: 200px;
+            background-color: var(--gray-600);
+            padding: 10px;
+            border-radius: 10px;
+
+            &:first-child {
+                flex: 2;
+            }
+        }
+
+        %input {
+            cursor: pointer;
+            width: 100%;
+            color: #a1a6bb;
+            font-size: 14px;
+            line-height: 24px;
+            height: 42px;
+            font-family: "Roboto", sans-serif;
+            font-weight: bold;
+            background-color: transparent;
+            border: none;
+            -moz-border-radius: 0.25rem;
+            border-radius: 0.25rem;
+            -moz-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+                -moz-box-shadow 0.15s ease-in-out;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -moz-box-shadow 0.15s ease-in-out;
+            font: 400 13.3333px roboto;
+            /*====================
+                FORMATAÇÃO placeholder INPUT DE TEXTO
+                =======================
+                */
+            *::-webkit-input-placeholder {
+                color: var(--gray-100);
+                font-size: 14px;
+                line-height: 24px;
+            }
+            *:-moz-placeholder {
+                font-size: 14px;
+                line-height: 24px;
+                color: var(--gray-100);
+            }
+            *::-moz-placeholder {
+                font-size: 14px;
+                line-height: 24px;
+                color: var(--gray-100);
+            }
+            *:-ms-input-placeholder {
+                color: var(--gray-100);
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+
+        .inputEndereco {
+            @extend %input;
+            flex: 2;
+        }
+    }
+
+    button {
+        background-color: var(--yellow-500);
+        color: #fff;
+        min-width: 300px;
+        height: 48px;
+        padding: 4px 16px;
+        border-radius: 8px;
+        border: none;
+        text-transform: none;
+        cursor: pointer;
+    }
+}
+
+.containerCarrossel {
+    display: flex;
+    overflow: auto;
+
+    scroll-snap-type: x mandatory;
+    --webkit-overflow-scrolling: touch;
+    pointer-events: none;
+
+    /* width */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        display: none;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        display: none;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        display: none;
+    }
+}
